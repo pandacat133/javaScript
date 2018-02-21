@@ -1,15 +1,17 @@
-let color = "red";
-let animal = "cat";
+var num = prompt("Pick a number!");
+var fact3 = "Fizz";
+var fact5 = "Buzz";
+var both = fact3 + fact5;
 
-var myDiv = document.getElementById("container");
-
-document.getElementById("container").style.backgroundColor = "#845";
-document.getElementById("container").style.color = "#236";
-document.getElementById("container").style.fontSize = "50px";
-
-
-for(var i = 0; i < 5; i++){
-    myDiv.innerHTML += "<div>Hello</div>";
+if (num % 3 === 0) {
+    console.log(fact3);
 }
-
-console.log(color, animal);
+if (num % 5 === 0) {
+    console.log (fact5);
+}
+if ((num % 3 && num % 5) === 0) {
+    console.log (both);
+}
+else {
+    console.log(num);
+}
