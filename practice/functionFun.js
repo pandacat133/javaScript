@@ -36,10 +36,7 @@ console.log(result);
     //factorials
 
     function fac(b) {
-        if (b < 0) {
-            return -1;
-        }
-        else if (b === 0) {
+        if (b <= 0) {
             return 1;
         }
         else {
@@ -49,3 +46,12 @@ console.log(result);
 
     let factorialAnswer = fac(5);
     console.log(factorialAnswer);
+
+    //pascal's triangle
+
+    function pascal(row, col) {
+        if (row <= 2 || col <= 1 || row === col) {
+            return 1;
+        }
+        return pascal(row -1, col -1) + pascal(row - 1, col);
+    }
