@@ -1,0 +1,10 @@
+.gridRow {
+    display: flex;
+}
+
+.square {
+    width: 25px;
+    height: 25px;
+    border: 1px solid #DADFEA;
+    margin: 3px;
+}
