@@ -1,0 +1,13 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.vehicle {
+    display: flex;
+    flex-direction: row;
+    padding: 5px 0;
+}
+
+.vehicle-attribute {
+    width: 200px;
+}
