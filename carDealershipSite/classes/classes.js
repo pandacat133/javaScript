@@ -28,7 +28,7 @@ class Stereo {
 
 class Car extends Vehicle {
     constructor(make, model, year, hasSpoiler) {
-        super( make, model, year);
+        super(make, model, year);
 
         this.hasSpoiler = hasSpoiler || false;
         this.trunkStatus = 'closed';
