@@ -1,0 +1,71 @@
+html{
+    height: 100%;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+h1{
+    font-family: 'Amatic SC', cursive;
+}
+
+.container{
+    width: 800px;
+    height: 600px;
+    margin: 30px auto;
+}
+
+.intro{
+    width: 100%;
+    height: 100%;
+    background-image: url("img/TitleScreen.png");
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.introBtn{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    background-color: #b22222;
+    color: #FFFFFF;
+    padding: 8px;
+    width: 150px;
+    height: 50px;
+    justify-content: center;
+    border-radius: 4px;
+}
+
+.menuPage{
+    display: none;
+    width: 100%;
+    height: 100%;
+    background-image: url("img/menuBack.png");
+}
+
+.btnContainer{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.menuBtns{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    background-color: #b22222;
+    color: #FFFFFF;
+    padding: 8px;
+    margin: 10px 0;
+    width: 150px;
+    height: 50px;
+    justify-content: center;
+    border-radius: 4px;
+}
