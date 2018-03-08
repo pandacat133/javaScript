@@ -24,10 +24,7 @@ console.log(result);
             return 1;
         }
 
-        let nMinus1 = fib(a-1);
-        let nMinus2 = fib(a-2);
-
-        return nMinus1 + nMinus2;
+        return fib(n-1) + fib(n-2);
     }
 
     let fibonacciAnswer = fib(5);
