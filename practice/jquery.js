@@ -3,3 +3,5 @@ function createAList() {
     $('.createdLists').append('<div>'+ listName + '</div>');
     $('#createInput').val('');
 }
+
+//<div class="editbox" contenteditable=true></div>
