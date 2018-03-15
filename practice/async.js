@@ -9,6 +9,8 @@ window.setTimeout(
 
 console.log ('I am doing stuff before the timeout is done');
 
+
+
 //Async Capitalize function
 
 function capAsync(anArray, callback) {
@@ -36,11 +38,13 @@ function handleModifiedArray(modifiedArrayStr) {
 wordArray = ['this','is','sparta'];
 let newCoolStr = capAsync(wordArray,handleModifiedArray);
 
+
+
 //Promises
 
 // We make a new promise: we promise a numeric count of this promise, starting from 1 (after waiting 3s)
 
-var promise =new Promise(
+var promise = new Promise(
     // The resolver function is called with the ability to resolve or
     // reject the promise
     function(resolve, reject){
@@ -51,9 +55,38 @@ var promise =new Promise(
             function(){
             // We fulfill the promise!
             resolve(thisPromiseCount);
-            }, Math.random()*2000+1000);
+            }, Math.random() * 2000 + 1000);
     }
 );
+
+
+
+//more promises
+
+// function success() {
+//     return(successData);
+// }
+//
+// function fail() {
+//     return(failData);
+// }
+//
+// doSomething().then(function(result) {
+//     return doSomethingElse(result);
+// })
+//     .then(function (newResult) {
+//         return doThirdThing(newResult);
+//     })
+//     .then(function (finalResult) {
+//         console.log('Got final result: ' + finalResult);
+//     })
+//     .catch(failureCallback);
+//
+// doSomething().then(success).then(success).then(success);
+//
+// let someString = 'asdf'.toUpperCase().toLowerCase().substr(2);
+
+
 
 //javascript callback pyramid of doom ---> this works but promises ^^^ are better!
 
@@ -64,6 +97,9 @@ var promise =new Promise(
 //         }, failureCallback);
 //     },failureCallback);
 // },failureCallback);
+
+
+
 
 //homework
 
