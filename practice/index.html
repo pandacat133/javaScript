@@ -4,85 +4,28 @@
 
     <meta charset="UTF-8">
     <title>Title</title>
-    <script src="https://code.jquery.com/jquery-1.12.4.js" defer></script>
-    <script src="markComplete.js" defer></script>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
 <body>
 
-    <div class="container">
+    <form name="myForm" onsubmit="validateForm()">
+        Street Address:<br>
+        <input type="text" name="streetAddress"><br>
 
-        <div class="row">
-            <div class="rowLeft">
+        City:<br>
+        <input type="text" name="city"><br>
 
-                <div class="iconSpot fa">
+        Zip Code:<br>
+        <input type="text" name="zip"><br>
 
-                </div>
+        State:<br>
+        <input type="text" name="state"><br>
 
-                <div class="label">
-                    Feed the Dog
-                </div>
+        <input type="submit">
+    </form>
 
-            </div>
-
-            <div class="rowRight">
-                <button onclick="markComplete(this)">
-                    Mark Complete
-                </button>
-
-                <i class="fa fa-trash" onclick="removeRow(this)"></i>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="rowLeft">
-
-                <div class="iconSpot fa">
-
-                </div>
-
-                <div class="label">
-                    Lick the Cat
-                </div>
-
-            </div>
-
-            <div class="rowRight">
-                <button onclick="markComplete(this)">
-                    Mark Complete
-                </button>
-
-                <i class="fa fa-trash" onclick="removeRow(this)"></i>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="rowLeft">
-
-                <div class="iconSpot fa">
-
-                </div>
-
-                <div class="label">
-                    Eat Breakfast
-                </div>
-
-            </div>
-
-            <div class="rowRight">
-                <button onclick="markComplete(this)">
-                    Mark Complete
-                </button>
-
-                <i class="fa fa-trash" onclick="removeRow(this)"></i>
-            </div>
-        </div>
-
-    </div>
 
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="markComplete.js"></script>
+    <script src="formValidation.js"></script>
 </body>
 </html>
