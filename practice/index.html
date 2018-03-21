@@ -1,31 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <meta charset="UTF-8">
     <title>Title</title>
-
 </head>
 <body>
-
-    <form name="myForm" onsubmit="validateForm()">
-        Street Address:<br>
-        <input type="text" name="streetAddress"><br>
-
-        City:<br>
-        <input type="text" name="city"><br>
-
-        Zip Code:<br>
-        <input type="text" name="zip"><br>
-
-        State:<br>
-        <input type="text" name="state"><br>
-
-        <input type="submit">
-    </form>
-
-
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="formValidation.js"></script>
+<p>Worker:</p>
+<div id="output"></div>
+<button onclick="startWorker()">Start</button>
+<button onclick="stopWorker()">Stop</button>
 </body>
+<script>
+    let w;
+    function startWorker(){
+        if(typeof(Worker) != "undefined"){
+            if(typeof(w) === "undefined"){
+                w = new Worker("duckTyping.js");
+            }
+            w.onmessage = function(event) {
+                document.getElementById("output").innerHTML = event.data;
+            }
+        }
+        else{
+            document.getElementById("output").innerHTML = "Stop using IE, it won't work";
+        }
+    }
+    function stopWorker(){
+        w.terminate();
+        w = undefined;
+    }
+</script>
 </html>
