@@ -8,7 +8,7 @@ class Person {
   }
 }
 
-class ThingService {
+class PeopleService {
   constructor() { }
 
   getPeopleList() {
