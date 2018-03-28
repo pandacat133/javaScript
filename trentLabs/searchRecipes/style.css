@@ -1,0 +1,36 @@
+body,
+html {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+body {
+  background-color: #1485CC;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container .searchBox {
+  display: flex;
+  background-color: #FFFFFF;
+  width: 70%;
+  height: 30px;
+  margin-bottom: 30px;
+  padding: 8px;
+  font-size: 18px;
+}
+.container .searchBox input {
+  outline: none;
+}
+.container .recipeCardHolder {
+  display: flex;
+}
+.container .recipeCardHolder .recipeCard {
+  background-color: #FFFFFF;
+  width: 33%;
+  height: 200px;
+  border: 1px solid #DADFEA;
+  padding: 15px;
+  margin-bottom: 15px;
+}
