@@ -16,5 +16,4 @@ class ReversePolish {
       }
       return st.pop();
   }
-
 }
