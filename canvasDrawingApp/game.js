@@ -16,11 +16,11 @@ Sprite.prototype.draw = function (renderingContext, x, y) {
 function initSprites(img) {
     // linkSprite = new Sprite(img, 0, 0, 90, 105);
 
-    linkBlink = [
-        new Sprite(img, 0, 0, 90, 105),
-        new Sprite(img, 95, 0, 90, 105),
-        new Sprite(img, 190, 0, 90, 105)
-    ];
+    // linkBlink = [
+    //     new Sprite(img, 0, 0, 90, 105),
+    //     new Sprite(img, 95, 0, 90, 105),
+    //     new Sprite(img, 190, 0, 90, 105)
+    // ];
 
     linkWalkDown = [
         new Sprite(img, 0, 420, 90, 105),

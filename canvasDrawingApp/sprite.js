@@ -5,6 +5,13 @@ var width = 600;
 var height = 500;
 var frames = 0;
 var myHero;
+var currentState;
+
+var states = {
+  Splash: 0,
+  Game: 1,
+  Score: 2
+};
 
 function main() {
     canvasSetup();
@@ -14,6 +21,7 @@ function main() {
     myHero = new Hero();
 
     loadGraphics();
+    currentState = states.Game;
 }
 
 function canvasSetup() {
@@ -33,22 +41,69 @@ function Hero() {
     this.health = 100;
     this.gravity = 0.25;
     this.velocity = 0;
-    this._jump = 4.6;
-    // this.blinkAnimation = [0,1,2,1];
+    this._jumpHeight = 4.6;
+    this.jumpCount = 2;
+    this.stop = false;
+
+    this.velX = 0;
+    this.maxSpeed = 6;
+    this.friction = 0.93;
+    this.direction = '';
+
     this.walkDownAnimation = [0,1,2,3,4,5,6,7,8,9];
+
+    this.jump = function() {
+        this.stop = false;
+        if(this.jumpCount > 0) {
+            this.velocity = -this._jumpHeight;
+            this.jumpCount --;
+        }
+    };
 
     this.update = function() {
         let n = 5;
         this.frame += frames % n === 0 ? 1:0;
-        // this.frame %= this.blinkAnimation.length;
         this.frame %= this.walkDownAnimation.length;
+
+        if(currentState === states.Game) {
+            this.updatePlayingHero();
+        }
+    };
+
+    this.updatePlayingHero = function() {
+        if(this.direction === 'left') {
+            if(this.velX > -this.maxSpeed) {
+                this.velX --;
+            }
+        }
+
+        if(this.direction === 'right') {
+            if(this.velX < this.maxSpeed) {
+                this.velX ++;
+            }
+        }
+
+        this.velX *= this.friction;
+        this.x += this.velX;
+
+        if(!this.stop) {
+            this.velocity += this.gravity;
+            this.y += this.velocity;
+        }
+
+        if(this.y >= 400) {
+            this.land(400);
+        }
+    };
+
+    this.land = function(place) {
+        this.y = place;
+        this.jumpCount = 2;
+        this.velocity = this._jumpHeight;
     };
 
     this.draw = function(renderingContext) {
         renderingContext.save();
-
-        // let n = this.blinkAnimation[this.frame];
-        // linkBlink[n].draw(renderingContext, this.x, this.y);
 
         let n = this.walkDownAnimation[this.frame];
         linkWalkDown[n].draw(renderingContext, this.x, this.y);
@@ -58,9 +113,27 @@ function Hero() {
 }
 
 function windowSetup() {
-
+    document.addEventListener('keydown', myKeyPress);
+    document.addEventListener('keyup', removeMotion);
 }
 
+function removeMotion() {
+    myHero.direction = '';
+}
+
+function myKeyPress(event) {
+    switch(event.keyCode) {
+        case 32:
+            myHero.jump();
+            break;
+        case 37:
+            myHero.direction = 'left';
+            break;
+        case 39:
+            myHero.direction = 'right';
+            break;
+    }
+}
 
 function loadGraphics() {
     let img = new Image();
