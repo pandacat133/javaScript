@@ -1,8 +1,8 @@
-describe('LinkedList', () => {
+describe('LinkedLists', () => {
   let linkedList;
 
   beforeEach(() => {
-    linkedList = new LinkedList();
+    linkedList = new LinkedLists();
   });
 
   describe('constructor', () => {
@@ -39,7 +39,7 @@ describe('LinkedList', () => {
     var testNode3;
     var testNode4;
     var testNode5;
-    
+
     beforeEach(() => {
       testNode1 = new Node(5);
       testNode2 = new Node(1);
