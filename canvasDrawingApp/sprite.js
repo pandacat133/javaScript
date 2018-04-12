@@ -46,6 +46,7 @@ function Hero() {
     this.stop = false;
 
     this.velX = 0;
+    this.velY = 0;
     this.maxSpeed = 6;
     this.friction = 0.93;
     this.direction = '';
@@ -83,17 +84,23 @@ function Hero() {
             }
         }
 
+        if(this.direction === 'down') {
+            if(this.velY < this.maxSpeed) {
+                this.velY ++;
+            }
+        }
+
+        if(this.direction === 'up') {
+            if(this.velY > -this.maxSpeed) {
+                this.velY --;
+            }
+        }
+
         this.velX *= this.friction;
         this.x += this.velX;
 
-        if(!this.stop) {
-            this.velocity += this.gravity;
-            this.y += this.velocity;
-        }
-
-        if(this.y >= 400) {
-            this.land(400);
-        }
+        this.velY *= this.friction;
+        this.y += this.velY;
     };
 
     this.land = function(place) {
@@ -132,6 +139,12 @@ function myKeyPress(event) {
         case 39:
             myHero.direction = 'right';
             break;
+        case 38:
+            myHero.direction = 'up';
+            break;
+        case 40:
+            myHero.direction = 'down';
+            break;
     }
 }
 
@@ -159,8 +172,6 @@ function update() {
 }
 
 function render() {
-    //draw stuff constantly based on status
     renderingContext.fillRect(0, 0, width, height);
-    // linkBlink[0].draw(renderingContext, 30, 30);
     myHero.draw(renderingContext);
 }
