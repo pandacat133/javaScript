@@ -1,43 +1,71 @@
 class LinkedList {
 
     constructor() {
-        this.start;
-        this.size;
+        this.start = null;
+        this.size = 0;
     }
 
     insert(value) {
-        var node = new Node(value),
-            currentNode = this.head;
+        var newNode = new Node(value);
 
-        // 1st use-case: an empty list
-        if (!currentNode) {
-            this.head = node;
-            this._length++;
+        if (!this.start) {
+            this.start = newNode;
+        } else {
+            var currentNode = this.start;
 
-            return node;
+            while (currentNode.next) {
+                currentNode = currentNode.next;
+            }
+
+            currentNode.next = newNode;
         }
 
-        // 2nd use-case: a non-empty list
-        while (currentNode.next) {
-            currentNode = currentNode.next;
-        }
-
-        currentNode.next = node;
-
-        this._length ++;
-
-        return node;
+        this.size++;
     }
 
     remove(value) {
+        var currentNode = this.start;
+        var previousNode;
+        var nextNode;
 
+        var foundValue = value === currentNode.value;
+        while (!foundValue) {
+            previousNode = currentNode;
+            currentNode = currentNode.next;
+
+            if (!currentNode) {
+                return;
+            }
+
+            foundValue = value === currentNode.value;
+        }
+
+        nextNode = currentNode.next;
+
+        if (currentNode === this.start) {
+            this.start = nextNode;
+        } else {
+            previousNode.next = nextNode;
+        }
+
+        this.size--;
     }
 
     contains(value) {
+        var currentNode = this.start;
 
+        while (value !== currentNode.value) {
+            currentNode = currentNode.next;
+
+            if (!currentNode) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     size() {
-
+        return this.size;
     }
 }
