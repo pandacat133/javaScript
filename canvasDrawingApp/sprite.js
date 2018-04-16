@@ -1,177 +1,40 @@
-var canvas;
-var blueFill = '#8BE4FD';
-var renderingContext;
-var width = 600;
-var height = 500;
-var frames = 0;
-var myHero;
-var currentState;
+let linkBlink;
+let linkWalkDown;
+let backgroundSprite;
 
-var states = {
-  Splash: 0,
-  Game: 1,
-  Score: 2
+function Sprite(img, x, y, width, height) {
+    this.img = img;
+    this.x = x;
+    this.y = y;
+    this.width = width;
+    this.height = height;
+}
+
+Sprite.prototype.draw = function (renderingContext, x, y) {
+    renderingContext.drawImage(this.img, this.x, this.y, this.width, this.height, x, y, this.width, this.height);
 };
 
-function main() {
-    canvasSetup();
-    windowSetup();
+function initSprites(img) {
+    // linkSprite = new Sprite(img, 0, 0, 90, 105);
 
-    document.getElementById('canvasBox').appendChild(canvas);
-    myHero = new Hero();
+    // linkBlink = [
+    //     new Sprite(img, 0, 0, 90, 105),
+    //     new Sprite(img, 95, 0, 90, 105),
+    //     new Sprite(img, 190, 0, 90, 105)
+    // ];
 
-    loadGraphics();
-    currentState = states.Game;
-}
+    linkWalkDown = [
+        new Sprite(img, 0, 420, 90, 105),
+        new Sprite(img, 95, 420, 90, 105),
+        new Sprite(img, 190, 420, 90, 105),
+        new Sprite(img, 285, 420, 90, 105),
+        new Sprite(img, 380, 420, 90, 105),
+        new Sprite(img, 475, 420, 90, 105),
+        new Sprite(img, 570, 420, 90, 105),
+        new Sprite(img, 665, 420, 90, 105),
+        new Sprite(img, 760, 420, 90, 105),
+        new Sprite(img, 855, 420, 90, 105)
+    ];
 
-function canvasSetup() {
-    canvas = document.createElement('canvas');
-    canvas.style.border = '2px solid black';
-
-    canvas.width = width;
-    canvas.height = height;
-
-    renderingContext = canvas.getContext('2d');
-}
-
-function Hero() {
-    this.x = 30;
-    this.y = 100;
-    this.frame = 0;
-    this.health = 100;
-    this.gravity = 0.25;
-    this.velocity = 0;
-    this._jumpHeight = 4.6;
-    this.jumpCount = 2;
-    this.stop = false;
-
-    this.velX = 0;
-    this.velY = 0;
-    this.maxSpeed = 6;
-    this.friction = 0.93;
-    this.direction = '';
-
-    this.walkDownAnimation = [0,1,2,3,4,5,6,7,8,9];
-
-    this.jump = function() {
-        this.stop = false;
-        if(this.jumpCount > 0) {
-            this.velocity = -this._jumpHeight;
-            this.jumpCount --;
-        }
-    };
-
-    this.update = function() {
-        let n = 5;
-        this.frame += frames % n === 0 ? 1:0;
-        this.frame %= this.walkDownAnimation.length;
-
-        if(currentState === states.Game) {
-            this.updatePlayingHero();
-        }
-    };
-
-    this.updatePlayingHero = function() {
-        if(this.direction === 'left') {
-            if(this.velX > -this.maxSpeed) {
-                this.velX --;
-            }
-        }
-
-        if(this.direction === 'right') {
-            if(this.velX < this.maxSpeed) {
-                this.velX ++;
-            }
-        }
-
-        if(this.direction === 'down') {
-            if(this.velY < this.maxSpeed) {
-                this.velY ++;
-            }
-        }
-
-        if(this.direction === 'up') {
-            if(this.velY > -this.maxSpeed) {
-                this.velY --;
-            }
-        }
-
-        this.velX *= this.friction;
-        this.x += this.velX;
-
-        this.velY *= this.friction;
-        this.y += this.velY;
-    };
-
-    this.land = function(place) {
-        this.y = place;
-        this.jumpCount = 2;
-        this.velocity = this._jumpHeight;
-    };
-
-    this.draw = function(renderingContext) {
-        renderingContext.save();
-
-        let n = this.walkDownAnimation[this.frame];
-        linkWalkDown[n].draw(renderingContext, this.x, this.y);
-
-        renderingContext.restore();
-    }
-}
-
-function windowSetup() {
-    document.addEventListener('keydown', myKeyPress);
-    document.addEventListener('keyup', removeMotion);
-}
-
-function removeMotion() {
-    myHero.direction = '';
-}
-
-function myKeyPress(event) {
-    switch(event.keyCode) {
-        case 32:
-            myHero.jump();
-            break;
-        case 37:
-            myHero.direction = 'left';
-            break;
-        case 39:
-            myHero.direction = 'right';
-            break;
-        case 38:
-            myHero.direction = 'up';
-            break;
-        case 40:
-            myHero.direction = 'down';
-            break;
-    }
-}
-
-function loadGraphics() {
-    let img = new Image();
-    img.src = 'images/link.png';
-    img.onload = function () {
-        initSprites(img);
-        renderingContext.fillStyle = blueFill;
-
-        gameLoop();
-    };
-}
-
-function gameLoop() {
-    update();
-    render();
-    window.requestAnimationFrame(gameLoop);
-}
-
-function update() {
-    //checking status and stuff happening
-    frames++;
-    myHero.update();
-}
-
-function render() {
-    renderingContext.fillRect(0, 0, width, height);
-    myHero.draw(renderingContext);
+    backgroundSprite = new Sprite(img, 23, 858, 917, 520);
 }
