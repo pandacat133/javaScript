@@ -1,0 +1,10 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.input {
+  width: 35px;
+  padding: 3px;
+  border-radius: 3px;
+  border: 1px solid gray;
+}
