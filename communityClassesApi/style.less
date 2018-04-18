@@ -1,0 +1,105 @@
+@back-gray: #f4f4f4;
+@my-white: #FFFFFF;
+@font-gray: #AAAAAA;
+@action-blue: #034EEA;
+body,html{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+body{
+  background-color: @back-gray;
+  font-family: 'Tajawal', sans-serif;
+}
+.container{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .centerBox{
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+    .card{
+      background-color: @my-white;
+      padding: 20px;
+      border-radius: 2px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.07);
+      width: 20%;
+      .catTitle{
+        width: 100%;
+        text-align: center;
+        font-size: 25px;
+        padding-top: 30px;
+        letter-spacing: 3px;
+        color: @font-gray;
+      }
+      .catSemester{
+        width: 100%;
+        text-align: center;
+        letter-spacing: 3px;
+        font-size: 12px;
+        color: @action-blue;
+      }
+      .catImage{
+        img{
+          width: 100%;
+        }
+      }
+      .catDescription{
+        color: @font-gray;
+        font-size: 13px;
+        padding: 30px 0 30px 0;
+        text-align: center;
+      }
+      .catButton{
+        width: 100%;
+        margin: 70px 0 15px 0;
+        display: flex;
+        justify-content: center;
+        button{
+          background-color: @action-blue;
+          color: @my-white;
+          padding: 10px 12px;
+          border-radius: 20px;
+          width: 150px;
+          border:none;
+          cursor: pointer;
+        }
+      }
+      .typeLinks{
+        display: block;
+        text-decoration: none;
+        color: @action-blue;
+        text-align: center;
+        padding-top: 5px;
+      }
+    }
+  }
+  .classDisplay{
+    display:none;
+    width: 80%;
+    .classHeader{
+      font-size: 18px;
+    }
+    .classRow{
+      display:flex;
+      justify-content: space-between;
+      height: 45px;
+      align-items: center;
+      background-color: @my-white;
+      border-radius: 2px;
+      margin-top: 12px;
+      font-size: 13px;
+      div{
+        width: 18%;
+        display: flex;
+        justify-content: flex-start;
+        padding-left: 10px;
+        height: 12px;
+      }
+    }
+  }
+}
