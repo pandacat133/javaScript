@@ -25,27 +25,27 @@ class LinkedList {
 
     remove(value) {
         var currentNode = this.start;
-        var previousNode;
-        var nextNode;
+            var previousNode;
+            var nextNode;
 
-        var foundValue = value === currentNode.value;
-        while (!foundValue) {
-            previousNode = currentNode;
-            currentNode = currentNode.next;
+            var foundValue = value === currentNode.value;
+            while (!foundValue) {
+                previousNode = currentNode;
+                currentNode = currentNode.next;
 
-            if (!currentNode) {
-                return;
+                if (!currentNode) {
+                    return;
+                }
+
+                foundValue = value === currentNode.value;
             }
 
-            foundValue = value === currentNode.value;
-        }
+            nextNode = currentNode.next;
 
-        nextNode = currentNode.next;
-
-        if (currentNode === this.start) {
-            this.start = nextNode;
-        } else {
-            previousNode.next = nextNode;
+            if (currentNode === this.start) {
+                this.start = nextNode;
+            } else {
+                previousNode.next = nextNode;
         }
 
         this.size--;
