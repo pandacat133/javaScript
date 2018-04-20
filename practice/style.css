@@ -1,0 +1,6 @@
+.container {
+  display: flex;
+}
+.container .row input {
+  width: 25px;
+}

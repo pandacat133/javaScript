@@ -4,16 +4,45 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <a onclick="myFunction(this)" href="#" class="fromHere">
-        Testing Testing 123
-    </a>
+    <div class="container">
+        <div class="card">
 
-    <div id="toHere">
+            <span>Scores</span>
 
+            <div class="row">
+
+                <input onkeyup="addScore(1)" type="text" id="p1h1">
+                <input onkeyup="addScore(1)" type="text" id="p1h2">
+                <input onkeyup="addScore(1)" type="text" id="p1h3">
+                <input onkeyup="addScore(1)" type="text" id="p1h4">
+                <input onkeyup="addScore(1)" type="text" id="p1h5">
+                <input onkeyup="addScore(1)" type="text" id="p1h6">
+
+            </div>
+
+            <div class="row">
+
+                <input onkeyup="addScore(2)" type="text" id="p2h1">
+                <input onkeyup="addScore(2)" type="text" id="p2h2">
+                <input onkeyup="addScore(2)" type="text" id="p2h3">
+                <input onkeyup="addScore(2)" type="text" id="p2h4">
+                <input onkeyup="addScore(2)" type="text" id="p2h5">
+                <input onkeyup="addScore(2)" type="text" id="p2h6">
+
+            </div>
+
+        </div>
+
+        <div class="total">
+            <span>Totals</span>
+            <div class="total1"></div>
+            <div class="total2"></div>
+        </div>
     </div>
 
 
