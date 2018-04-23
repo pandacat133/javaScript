@@ -9,3 +9,11 @@ function addScore(myValue) {
 
     $('.total' + myValue).html(tempScore);
 }
+
+function deletePlayer(playerNum) {
+    $('.player' + playerNum).remove();
+    for(let i = 1; i <= numberOfHoles; i++) {
+        $('#p' + playerNum + 'h' + i).remove();
+    }
+    $('.total' + playerNum).remove();
+}

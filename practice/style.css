@@ -1,6 +1,9 @@
 .container {
   display: flex;
 }
+.container .players {
+  margin-right: 15px;
+}
 .container .row input {
   width: 25px;
 }
