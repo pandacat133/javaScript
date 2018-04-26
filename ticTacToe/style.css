@@ -1,0 +1,66 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.player-name-error {
+    color: red;
+}
+
+.game-board {
+    display: flex;
+    flex-direction: column;
+}
+
+.board-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.board-square {
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    font-size: 64px;
+    display: flex;
+    justify-content: center;
+}
+
+#board-0-0 {
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+}
+#board-0-1 {
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+}
+#board-0-2 {
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+}
+#board-1-0 {
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+#board-1-1 {
+    border: 1px solid black;
+}
+#board-1-2 {
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+#board-2-0 {
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+}
+#board-2-1 {
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+}
+#board-2-2 {
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+}

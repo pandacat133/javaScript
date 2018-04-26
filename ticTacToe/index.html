@@ -1,69 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width">
-
-    <title>Tic Tac Toe</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-
-    <h2>Tic Tac Toe</h2>
-
-    <div id="players">
-        <div>
-            <label for="player1NameInput">
-                Player 1:
-            </label>
-            <input name="player1NameInput" id="player1NameInput">
-        </div>
-
-        <div>
-            <label for="player2NameInput">
-                Player 1:
-            </label>
-            <input name="player2NameInput" id="player2NameInput">
-        </div>
-
-        <div>
-            <button onclick="startNewGame()">
-                Start
-            </button>
-        </div>
-
-        <div id="gameHeader">
-            <h3>
-                <span id="p1Name"></span><span id="p1Score"></span>
-            </h3>
-
-            <h3>
-                <span id="p2Name"></span><span id="p2Score"></span>
-            </h3>
-
-            <h3>
-                Ties: <span id="tiesValue"></span>
-            </h3>
-
-            <h4>
-                Turn: <span id="playerTurn"></span>
-            </h4>
-        </div>
-
-        <div id="gameBoard">
-
-        </div>
-        
-    </div>
-
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"
-            integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ"
-            crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Tic-Tac-Toe</title>
     <script src="gameBoard.js"></script>
     <script src="game.js"></script>
-    <script src="action.js"></script>
-</body>
+</head>
+<body>
+<h2>Tic Tac Toe</h2>
 
+<div id="players">
+    <div>
+        <label for="player1Name">Player 1:</label>
+        <input name="player1Name" id="player1Name"/>
+    </div>
+    <div>
+        <label for="player2Name">Player 2:</label>
+        <input name="player2Name" id="player2Name"/>
+    </div>
+    <div>
+        <button onclick="startNewGame()">Start</button>
+    </div>
+    <h3 id="player-name-error" class="player-name-error">Please enter a name for both players</div>
+</div>
+
+<div id="game-header">
+    <h3><span id="p1Name"></span>: <span id="p1Score"></span></h3>
+    <h3><span id="p2Name"></span>: <span id="p2Score"></span></h3>
+    <h3><span id="ties">Ties</span>: <span id="tiesValue"></span></h3>
+    <h2><span id="turn">Turn: </span><span id="playerTurn"></span></h2>
+</div>
+
+<div id="game-board" class="game-board"></div>
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="action.js"></script>
+</body>
 </html>
