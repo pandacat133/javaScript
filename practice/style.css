@@ -1,9 +1,10 @@
 .container {
-  display: flex;
+  width: 500px;
+  height: 500px;
+  border: #DADFEA 1px solid;
+  position: relative;
 }
-.container .players {
-  margin-right: 15px;
-}
-.container .row input {
-  width: 25px;
+.container .coin {
+  position: absolute;
+  width: 30px;
 }

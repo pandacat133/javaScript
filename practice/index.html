@@ -9,54 +9,8 @@
 
 <body>
 
-    <div class="container">
+    <div class="container" onclick="loadCoins()">
 
-        <div class="players">
-
-            <span>PLAYERS</span>
-            <div class="playerRow player1">
-                <span onclick="deletePlayer(1)" class="fa fa-trash"></span><span>Player 1</span>
-            </div>
-
-            <div class="playerRow player2">
-                <span onclick="deletePlayer(1)" class="fa fa-trash"></span><span>Player 2</span>
-            </div>
-
-        </div>
-
-        <div class="card">
-
-            <span>Scores</span>
-
-            <div class="row">
-
-                <input onkeyup="addScore(1)" type="text" id="p1h1">
-                <input onkeyup="addScore(1)" type="text" id="p1h2">
-                <input onkeyup="addScore(1)" type="text" id="p1h3">
-                <input onkeyup="addScore(1)" type="text" id="p1h4">
-                <input onkeyup="addScore(1)" type="text" id="p1h5">
-                <input onkeyup="addScore(1)" type="text" id="p1h6">
-
-            </div>
-
-            <div class="row">
-
-                <input onkeyup="addScore(2)" type="text" id="p2h1">
-                <input onkeyup="addScore(2)" type="text" id="p2h2">
-                <input onkeyup="addScore(2)" type="text" id="p2h3">
-                <input onkeyup="addScore(2)" type="text" id="p2h4">
-                <input onkeyup="addScore(2)" type="text" id="p2h5">
-                <input onkeyup="addScore(2)" type="text" id="p2h6">
-
-            </div>
-
-        </div>
-
-        <div class="total">
-            <span>Totals</span>
-            <div class="total1"></div>
-            <div class="total2"></div>
-        </div>
     </div>
 
 
@@ -64,7 +18,7 @@
     <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"
             integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ"
             crossorigin="anonymous"></script>
-    <script src="domManipulation.js"></script>
+    <script src="randomImage.js"></script>
 </body>
 
 </html>
