@@ -24,8 +24,6 @@ function addPumpkin(event) {
 
 }
 
-
-// ignore the code down here, it is Jquery.
 $("#container").mousemove(function(e){
       $('.follow').css({'top': e.clientY + 20, 'left': e.clientX - 50});
 });
