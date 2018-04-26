@@ -5,6 +5,7 @@ var width = 917;
 var height = 520;
 var frames = 0;
 var myHero;
+var myWallet;
 var currentState;
 
 var states = {
@@ -19,9 +20,11 @@ function main() {
 
     document.getElementById('canvasBox').appendChild(canvas);
     myHero = new Hero();
+    myWallet = new Wallet();
 
     loadGraphics();
     currentState = states.Game;
+    levelStart(0);
 }
 
 function canvasSetup() {
@@ -44,6 +47,8 @@ function Hero() {
     // this._jumpHeight = 4.6;
     // this.jumpCount = 2;
     this.stop = false;
+    this.width = 90;
+    this.height = 105;
 
     this.velX = 0;
     this.velY = 0;
@@ -122,6 +127,62 @@ function Hero() {
     }
 }
 
+function Wallet() {
+    this.collection = [];
+
+    this.add = function(gemX, gemY) {
+        this.collection.push(new RupeeGem(gemX, gemY));
+    };
+
+    this.update = function() {
+        for(let gem = 0; gem < this.collection.length; gem++) {
+            let loopedGem = this.collection[gem];
+
+            let gemTop = loopedGem.y;
+            let gemLeft = loopedGem.x;
+            let gemRight = loopedGem.x + loopedGem.width;
+            let gemBottom = loopedGem.y + loopedGem.height;
+
+            let heroTop = myHero.y;
+            let heroLeft = myHero.x;
+            let heroRight = myHero.x + myHero.width;
+            let heroBottom = myHero.y + myHero.height;
+
+            if((heroBottom >= gemTop && heroTop <= gemBottom) && (heroRight >= gemLeft && heroLeft <= gemRight)) {
+                this.collection.splice(gem, 1);
+            }
+        }
+    };
+
+    this.draw = function() {
+        for(let i = 0; i < this.collection.length; i++) {
+            let theGem = this.collection[i];
+            theGem.draw();
+        }
+    };
+
+}
+
+function RupeeGem(rupeeX, rupeeY) {
+    this.x = rupeeX;
+    this.y = rupeeY;
+
+    this.width = 40;
+    this.height = 77;
+
+    this.draw = function() {
+        rupee.draw(renderingContext, this.x, this.y);
+    };
+}
+
+function levelStart(levelNumber) {
+    let gemCount = setup.levels[levelNumber].gems.length;
+    for(let i = 0; i < gemCount; i++) {
+        let gemCoor = setup.levels[levelNumber].gems[i];
+        myWallet.add(gemCoor.x, gemCoor.y);
+    }
+}
+
 function windowSetup() {
     document.addEventListener('keydown', myKeyPress);
     document.addEventListener('keyup', removeMotion);
@@ -172,10 +233,12 @@ function update() {
     //checking status and stuff happening
     frames++;
     myHero.update();
+    myWallet.update();
 }
 
 function render() {
     renderingContext.fillRect(0, 0, width, height);
     backgroundSprite.draw(renderingContext, 0, 0);
+    myWallet.dragDrop(renderingContext);
     myHero.draw(renderingContext);
 }

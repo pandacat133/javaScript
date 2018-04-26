@@ -1,6 +1,7 @@
 let linkBlink;
 let linkWalkDown;
 let backgroundSprite;
+let rupee;
 
 function Sprite(img, x, y, width, height) {
     this.img = img;
@@ -37,4 +38,6 @@ function initSprites(img) {
     ];
 
     backgroundSprite = new Sprite(img, 23, 858, 917, 520);
+
+    rupee = new Sprite(img, 305, 17, 40, 77);
 }
